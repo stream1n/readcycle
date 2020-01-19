@@ -1,0 +1,11 @@
+# This is a generated file; do not edit or check into version control.
+cloud_firestore=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.12.11/
+connectivity=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity-0.4.6+2/
+firebase_auth=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.15.3+1/
+firebase_auth_web=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-0.1.1+4/
+firebase_core=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.4.3+2/
+firebase_core_web=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.1.1+2/
+flutter_barcode_scanner=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_barcode_scanner-0.1.7/
+google_sign_in=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-4.1.1/
+google_sign_in_web=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.8.3/
+path_provider=/Users/streamin/Sandbox/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.5.1/
