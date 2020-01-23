@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import '../book_bloc/blocs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:readcycle/blocs/book_bloc/bloc.dart';
 
 class HomeScreen extends StatelessWidget {
 

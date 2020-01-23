@@ -1,40 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:readcycle/filtered_library_book_bloc/blocs.dart';
-import '../authentication_bloc/bloc.dart';
+import 'package:readcycle/blocs/authentication_bloc/bloc.dart';
 
 class ProfileScreen extends StatelessWidget {
-
   final FirebaseUser user;
 
   ProfileScreen({Key key, @required this.user}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<FilteredLibraryBooksBloc, FilteredLibraryBooksState>(
-      builder: (context, state) {
-        if (state is FilteredLibraryBooksLoading) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (state is FilteredLibraryBooksLoaded) {
-          final libraryBooks = state.filteredLibraryBooks;
-          return ListView.builder(
-            itemCount: libraryBooks.length,
-            itemBuilder: (context, index) {
-              final libraryBook = libraryBooks[index];
-              return Text(libraryBook.name);
-            },
-          );
-        } else {
-          return Container();
-        }
-      },
-    );
-  }
-
-  /*@override
   Widget build(BuildContext context) {
 
     final String name = user.displayName;
@@ -70,5 +44,5 @@ class ProfileScreen extends StatelessWidget {
         ],
       ),
     );
-  }*/
+  }
 }

@@ -1,80 +1,88 @@
-import 'package:readcycle/filtered_library_book_bloc/blocs.dart';
-import 'package:readcycle/library_book_bloc/blocs.dart';
-import 'package:readcycle/main_route.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'authentication_bloc/bloc.dart';
-import 'repositories/user_repository.dart';
-import 'login/login.dart';
-import 'splash_screen.dart';
-import 'simple_bloc_delegate.dart';
+import 'package:readcycle/blocs/authentication_bloc/bloc.dart';
+import 'package:readcycle/blocs/blocs.dart';
+import 'package:readcycle/screens/screens.dart';
+import 'package:user_repository/user_repository.dart';
+import 'package:library_books_repository/library_books_repository.dart';
+import 'package:book_repository/book_repository.dart';
 import 'package:http/http.dart' as http;
-import './repositories/repositories.dart';
-import './book_bloc/book_bloc.dart';
-import './books_bloc/books_bloc.dart';
 
 void main() {
+  final UserRepository userRepository = FirebaseUserRepository();
 
-  final UserRepository userRepository = UserRepository();
-
-  final BookRepository bookRepository = BookRepository(
+  final BookRepository bookRepository = BookRepositoryHttp(
     bookApiClient: BookApiClient(
       httpClient: http.Client(),
     ),
   );
 
-  WidgetsFlutterBinding.ensureInitialized();
-
   BlocSupervisor.delegate = SimpleBlocDelegate();
-
   runApp(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider<AuthenticationBloc>(
-              create: (context) => AuthenticationBloc(userRepository: userRepository)..add(AppStarted())
-          ),
-          BlocProvider<BookBloc>(
-              create: (context) => BookBloc(bookRepository: bookRepository)
-          ),
-          BlocProvider<BooksBloc>(
-              create: (context) => BooksBloc(bookRepository: bookRepository)
-          ),
-          BlocProvider<LibraryBookBloc>(
-              create: (context) => LibraryBookBloc(libraryBookRepository: FirebaseLibraryBookRepository())
-          ),
-          BlocProvider<FilteredLibraryBooksBloc>(
-            create: (context) => FilteredLibraryBooksBloc(
-              libraryBooksBloc: BlocProvider.of<LibraryBookBloc>(context),
-            ),
-          ),
-        ],
-      child: App(userRepository: userRepository),
-    ),
-  );
+      TodosApp(userRepository: userRepository, bookRepository: bookRepository));
 }
 
-class App extends StatelessWidget {
+class TodosApp extends StatelessWidget {
   final UserRepository _userRepository;
+  final BookRepository _bookRepository;
 
-  App({Key key, @required UserRepository userRepository})
-      : assert(userRepository != null),
+  TodosApp(
+      {Key key,
+      @required UserRepository userRepository,
+      @required BookRepository bookRepository})
+      : assert(userRepository != null && bookRepository != null),
         _userRepository = userRepository,
+        _bookRepository = bookRepository,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-        builder: (context, state) {
-          if (state is Unauthenticated) {
-            return LoginScreen(userRepository: _userRepository);
-          }
-          if (state is Authenticated) {
-            return MainRoute(user: state.user);
-          }
-          return SplashScreen();
-        },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthenticationBloc>(
+          create: (context) {
+            return AuthenticationBloc(
+              userRepository: _userRepository,
+            )..add(AppStarted());
+          },
+        ),
+        BlocProvider<LibraryBooksBloc>(
+          create: (context) {
+            return LibraryBooksBloc(
+              libraryBooksRepository: FirebaseLibraryBooksRepository(),
+            )..add(LoadLibraryBooks());
+          },
+        ),
+      ],
+      child: MaterialApp(
+        home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+          builder: (context, state) {
+            if (state is Unauthenticated) {
+              return LoginScreen(userRepository: _userRepository);
+            }
+            if (state is Authenticated) {
+              return MultiBlocProvider(
+                providers: [
+                  BlocProvider<BookBloc>(
+                      create: (context) =>
+                          BookBloc(bookRepository: _bookRepository)),
+                  BlocProvider<BooksBloc>(
+                      create: (context) =>
+                          BooksBloc(bookRepository: _bookRepository)),
+                  BlocProvider<FilteredLibraryBooksBloc>(
+                    create: (context) => FilteredLibraryBooksBloc(
+                      libraryBooksBloc:
+                          BlocProvider.of<LibraryBooksBloc>(context),
+                    ),
+                  ),
+                ],
+                child: MainRoute(user: state.user),
+              );
+            }
+            return SplashScreen();
+          },
+        ),
       ),
     );
   }

@@ -32,6 +32,12 @@ dependencies:
   custom_navigator: ^0.3.0
   http: ^0.12.0
   cloud_firestore: ^0.12.10+2
+  book_repository:
+    path: book_repository
+  library_books_repository:
+    path: library_books_repository
+  user_repository:
+    path: user_repository
 
 dev_dependencies:
   flutter_test:
