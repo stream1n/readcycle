@@ -5,12 +5,14 @@ import 'package:readcycle/blocs/library_books/library_books.dart';
 import 'package:library_books_repository/library_books_repository.dart';
 
 class LibraryBooksBloc extends Bloc<LibraryBooksEvent, LibraryBooksState> {
+  final String _userId;
   final LibraryBooksRepository _libraryBooksRepository;
   StreamSubscription _libraryBooksSubscription;
 
-  LibraryBooksBloc({@required LibraryBooksRepository libraryBooksRepository})
-      : assert(libraryBooksRepository != null),
-        _libraryBooksRepository = libraryBooksRepository;
+  LibraryBooksBloc({@required LibraryBooksRepository libraryBooksRepository, @required String userId})
+      : assert(libraryBooksRepository != null && userId != null),
+        _libraryBooksRepository = libraryBooksRepository,
+        _userId = userId;
 
   @override
   LibraryBooksState get initialState => LibraryBooksLoading();
@@ -32,7 +34,7 @@ class LibraryBooksBloc extends Bloc<LibraryBooksEvent, LibraryBooksState> {
 
   Stream<LibraryBooksState> _mapLoadLibraryBooksToState() async* {
     _libraryBooksSubscription?.cancel();
-    _libraryBooksSubscription = _libraryBooksRepository.libraryBooks().listen(
+    _libraryBooksSubscription = _libraryBooksRepository.libraryBooks(_userId).listen(
           (libraryBooks) => add(LibraryBooksUpdated(libraryBooks)),
         );
   }

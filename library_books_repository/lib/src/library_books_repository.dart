@@ -7,7 +7,7 @@ abstract class LibraryBooksRepository {
 
   Future<void> deleteLibraryBook(LibraryBook libraryBook);
 
-  Stream<List<LibraryBook>> libraryBooks();
+  Stream<List<LibraryBook>> libraryBooks(String user);
 
   Future<void> updateLibraryBook(LibraryBook libraryBook);
 }

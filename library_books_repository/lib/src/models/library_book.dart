@@ -8,16 +8,17 @@ class LibraryBook {
   final String name;
   final String pictureURL;
   final String isbn;
+  final String user;
 
-  LibraryBook(this.id, this.name, this.pictureURL, this.isbn, this.wanted);
+  LibraryBook(this.id, this.name, this.pictureURL, this.isbn, this.wanted, this.user);
 
-  LibraryBook copyWith({bool wanted, String id, String name, String pictureURL, String isbn}) {
-    return LibraryBook(id, name, pictureURL, isbn, wanted);
+  LibraryBook copyWith({bool wanted, String id, String name, String pictureURL, String isbn, String user}) {
+    return LibraryBook(id, name, pictureURL, isbn, wanted, user);
   }
 
   @override
   int get hashCode =>
-      wanted.hashCode ^ name.hashCode ^ pictureURL.hashCode ^ isbn.hashCode ^ id.hashCode;
+      wanted.hashCode ^ name.hashCode ^ pictureURL.hashCode ^ isbn.hashCode ^ id.hashCode ^ user.hashCode ;
 
   @override
   bool operator ==(Object other) =>
@@ -28,15 +29,16 @@ class LibraryBook {
           name == other.name &&
           pictureURL == other.pictureURL &&
           isbn == other.isbn &&
-          id == other.id;
+          id == other.id &&
+          user == other.user;
 
   @override
   String toString() {
-    return 'LibraryBook{wanted: $wanted, name: $name, pictureURL: $pictureURL, isbn: $isbn, id: $id}';
+    return 'LibraryBook{wanted: $wanted, name: $name, pictureURL: $pictureURL, isbn: $isbn, id: $id, user: $user}';
   }
 
   LibraryBookEntity toEntity() {
-    return LibraryBookEntity(name, id, wanted, pictureURL, isbn);
+    return LibraryBookEntity(name, id, wanted, pictureURL, isbn, user);
   }
 
   static LibraryBook fromEntity(LibraryBookEntity entity) {
@@ -46,6 +48,7 @@ class LibraryBook {
       entity.pictureURL,
       entity.isbn,
       entity.wanted,
+      entity.user,
     );
   }
 }

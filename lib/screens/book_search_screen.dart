@@ -73,7 +73,7 @@ class BookSearchScreenState extends State<BookSearchScreen> {
                       }
 
                       BlocProvider.of<LibraryBooksBloc>(context).add(
-                        AddLibraryBook(LibraryBook(widget.user.uid, book.name, book.pictureURL, book.isbn, wanted)),
+                        AddLibraryBook(LibraryBook(widget.user.uid, book.name, book.pictureURL, book.isbn, wanted, widget.user.uid)),
                       );
 
                       Scaffold.of(context).showSnackBar(

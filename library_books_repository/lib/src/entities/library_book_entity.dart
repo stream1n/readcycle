@@ -7,8 +7,9 @@ class LibraryBookEntity extends Equatable {
   final String name;
   final String pictureURL;
   final String isbn;
+  final String user;
 
-  const LibraryBookEntity(this.name, this.id, this.wanted, this.pictureURL, this.isbn);
+  const LibraryBookEntity(this.name, this.id, this.wanted, this.pictureURL, this.isbn, this.user);
 
   Map<String, Object> toJson() {
     return {
@@ -17,15 +18,16 @@ class LibraryBookEntity extends Equatable {
       "id": id,
       "pictureURL": pictureURL,
       "isbn": isbn,
+      "user": user,
     };
   }
 
   @override
-  List<Object> get props => [wanted, id, name, pictureURL, isbn];
+  List<Object> get props => [wanted, id, name, pictureURL, isbn, user];
 
   @override
   String toString() {
-    return 'LibraryBookEntity { wanted: $wanted, name: $name, id: $id, pictureURL: $pictureURL, isbn: $isbn }';
+    return 'LibraryBookEntity { wanted: $wanted, name: $name, id: $id, pictureURL: $pictureURL, isbn: $isbn, user: $user }';
   }
 
   static LibraryBookEntity fromJson(Map<String, Object> json) {
@@ -35,6 +37,7 @@ class LibraryBookEntity extends Equatable {
       json["wanted"] as bool,
       json["pictureURL"] as String,
       json["isbn"] as String,
+      json["user"] as String,
     );
   }
 
@@ -45,6 +48,7 @@ class LibraryBookEntity extends Equatable {
       snap.data['wanted'],
       snap.data['pictureURL'],
       snap.data['isbn'],
+      snap.data['user'],
     );
   }
 
@@ -54,6 +58,7 @@ class LibraryBookEntity extends Equatable {
       "name": name,
       "pictureURL": pictureURL,
       "isbn": isbn,
+      "user": user,
     };
   }
 }

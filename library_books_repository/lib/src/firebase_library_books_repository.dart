@@ -18,11 +18,15 @@ class FirebaseLibraryBooksRepository implements LibraryBooksRepository {
   }
 
   @override
-  Stream<List<LibraryBook>> libraryBooks() {
+  Stream<List<LibraryBook>> libraryBooks(String user) {
     return libraryBookCollection.snapshots().map((snapshot) {
       return snapshot.documents
-          .map((doc) => LibraryBook.fromEntity(LibraryBookEntity.fromSnapshot(doc)))
-          .toList();
+          .map((doc) =>
+              LibraryBook.fromEntity(LibraryBookEntity.fromSnapshot(doc)))
+          .toList()
+          .where((libraryBook) {
+        return libraryBook.user == user;
+      }).toList();
     });
   }
 

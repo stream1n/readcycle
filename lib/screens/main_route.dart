@@ -40,6 +40,7 @@ class _MainState extends State<MainRoute> {
           BookSearchScreen(user: widget.user),
           LibraryScreen(user: widget.user),
           ProfileScreen(user: widget.user),
+          //LocationScreen(),
         ],
         onItemTap: (index) {});
   }

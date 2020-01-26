@@ -6,12 +6,12 @@ import 'package:readcycle/blocs/blocs.dart';
 import 'package:readcycle/screens/screens.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:library_books_repository/library_books_repository.dart';
+import 'package:user_profile_repository/user_profile_repository.dart';
 import 'package:book_repository/book_repository.dart';
 import 'package:http/http.dart' as http;
+import 'package:geolocator/geolocator.dart';
 
 void main() {
-  final UserRepository userRepository = FirebaseUserRepository();
-
   final BookRepository bookRepository = BookRepositoryHttp(
     bookApiClient: BookApiClient(
       httpClient: http.Client(),
@@ -19,20 +19,14 @@ void main() {
   );
 
   BlocSupervisor.delegate = SimpleBlocDelegate();
-  runApp(
-      TodosApp(userRepository: userRepository, bookRepository: bookRepository));
+  runApp(ReadCycleApp(bookRepository: bookRepository));
 }
 
-class TodosApp extends StatelessWidget {
-  final UserRepository _userRepository;
+class ReadCycleApp extends StatelessWidget {
   final BookRepository _bookRepository;
 
-  TodosApp(
-      {Key key,
-      @required UserRepository userRepository,
-      @required BookRepository bookRepository})
-      : assert(userRepository != null && bookRepository != null),
-        _userRepository = userRepository,
+  ReadCycleApp({Key key, @required BookRepository bookRepository})
+      : assert(bookRepository != null),
         _bookRepository = bookRepository,
         super(key: key);
 
@@ -43,27 +37,41 @@ class TodosApp extends StatelessWidget {
         BlocProvider<AuthenticationBloc>(
           create: (context) {
             return AuthenticationBloc(
-              userRepository: _userRepository,
+              userRepository: FirebaseUserRepository(),
             )..add(AppStarted());
           },
-        ),
-        BlocProvider<LibraryBooksBloc>(
-          create: (context) {
-            return LibraryBooksBloc(
-              libraryBooksRepository: FirebaseLibraryBooksRepository(),
-            )..add(LoadLibraryBooks());
-          },
-        ),
+        )
       ],
       child: MaterialApp(
         home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: (context, state) {
             if (state is Unauthenticated) {
-              return LoginScreen(userRepository: _userRepository);
+              return LoginScreen(userRepository: FirebaseUserRepository());
             }
             if (state is Authenticated) {
               return MultiBlocProvider(
                 providers: [
+                  BlocProvider<LibraryBooksBloc>(
+                    create: (context) {
+                      return LibraryBooksBloc(
+                          libraryBooksRepository:
+                              FirebaseLibraryBooksRepository(),
+                          userId: state.user.uid)
+                        ..add(LoadLibraryBooks());
+                    },
+                  ),
+                  BlocProvider<UserProfileBloc>(
+                    create: (context) {
+                      return UserProfileBloc(
+                          userProfileRepository:
+                          FirebaseUserProfileRepository(),
+                          userId: state.user.uid)
+                        ..add(LoadUserProfile());
+                    },
+                  ),
+                  BlocProvider<LocationBloc>(
+                      create: (context) =>
+                          LocationBloc(geolocator: Geolocator())),
                   BlocProvider<BookBloc>(
                       create: (context) =>
                           BookBloc(bookRepository: _bookRepository)),
