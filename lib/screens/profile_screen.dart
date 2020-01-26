@@ -49,16 +49,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Center(child: Text('Welcome $name!')),
           Center(child: Text('$email')),
           Center(
-            child: BlocBuilder<UserProfileBloc, UserProfileState>(
+            child: BlocBuilder<UserLocationBloc, UserLocationState>(
               builder: (context, state) {
-                if (state is UserProfileNotLoaded) {
-                  return Center(child: Text('No Location Found'));
+                if (state is UserLocationError) {
+                  return Center(child: Text('Error Loading User Location'));
                 }
-                if (state is UserProfileLoading) {
+                if (state is UserLocationLoading) {
                   return Center(child: CircularProgressIndicator());
                 }
-                if (state is UserProfileLoaded) {
-                  final location = state.userProfile.location.postalCode;
+                if (state is UserLocationLoaded) {
+                  final location = state.userLocation.name + ", " + state.userLocation.locality + "," + state.userLocation.postalCode + "," + state.userLocation.country;
                   return Text(location);
                 }
                 else {
@@ -73,9 +73,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           IconButton(
             icon: Icon(Icons.my_location),
             onPressed: () {
-              BlocProvider.of<LocationBloc>(context).add(
-                FetchLocation(),
-              );
+              BlocProvider.of<UserLocationBloc>(context).add(UpdateUserLocation());
             },
           )
         ],

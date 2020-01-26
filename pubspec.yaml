@@ -39,8 +39,8 @@ dependencies:
     path: library_books_repository
   user_repository:
     path: user_repository
-  user_profile_repository:
-    path: user_profile_repository
+  user_location_repository:
+    path: user_location_repository
 
 dev_dependencies:
   flutter_test:

@@ -94,7 +94,9 @@
       <excludeFolder url="file://$MODULE_DIR$/library_books_repository/build" />
       <excludeFolder url="file://$MODULE_DIR$/todos_repository/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/todos_repository/build" />
-      <excludeFolder url="file://$MODULE_DIR$/user_profile_repository/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/user_location_repository/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/user_location_repository/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/user_location_repository/build" />
       <excludeFolder url="file://$MODULE_DIR$/user_profile_repository/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/user_profile_repository/build" />
       <excludeFolder url="file://$MODULE_DIR$/user_repository/.dart_tool" />

@@ -6,7 +6,7 @@ import 'package:readcycle/blocs/blocs.dart';
 import 'package:readcycle/screens/screens.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:library_books_repository/library_books_repository.dart';
-import 'package:user_profile_repository/user_profile_repository.dart';
+import 'package:user_location_repository/user_location_repository.dart';
 import 'package:book_repository/book_repository.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
@@ -60,18 +60,16 @@ class ReadCycleApp extends StatelessWidget {
                         ..add(LoadLibraryBooks());
                     },
                   ),
-                  BlocProvider<UserProfileBloc>(
+                  BlocProvider<UserLocationBloc>(
                     create: (context) {
-                      return UserProfileBloc(
-                          userProfileRepository:
-                          FirebaseUserProfileRepository(),
-                          userId: state.user.uid)
-                        ..add(LoadUserProfile());
+                      return UserLocationBloc(
+                          userLocationRepository:
+                          FirebaseUserLocationRepository(),
+                          userId: state.user.uid,
+                          geolocator: Geolocator())
+                        ..add(LoadUserLocation());
                     },
                   ),
-                  BlocProvider<LocationBloc>(
-                      create: (context) =>
-                          LocationBloc(geolocator: Geolocator())),
                   BlocProvider<BookBloc>(
                       create: (context) =>
                           BookBloc(bookRepository: _bookRepository)),
