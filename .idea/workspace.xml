@@ -7,32 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b18ad08a-a951-452c-9ee3-de108a3ec4bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/blocs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/blocs/blocs.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/location_bloc/bloc.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/location_bloc/location_bloc.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/location_bloc/location_event.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/location_bloc/location_state.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/user_profile_bloc/bloc.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/user_profile_bloc/user_profile_bloc.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/user_profile_bloc/user_profile_event.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/user_profile_bloc/user_profile_state.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/location_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/profile_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/screens.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/screens.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readcycle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/readcycle.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/.flutter-plugins" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/.flutter-plugins-dependencies" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/lib/src/entities/entities.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/lib/src/entities/user_profile_entity.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/lib/src/firebase_user_profile_repository.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/lib/src/models/models.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/lib/src/models/user_profile.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/lib/src/user_profile_repository.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/lib/user_profile_repository.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile_repository/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_location_repository/lib/src/entities/user_location_entity.dart" beforeDir="false" afterPath="$PROJECT_DIR$/user_location_repository/lib/src/entities/user_location_entity.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_location_repository/lib/src/models/user_location.dart" beforeDir="false" afterPath="$PROJECT_DIR$/user_location_repository/lib/src/models/user_location.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -50,12 +27,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/screens/profile_screen.dart">
+        <entry file="file://$PROJECT_DIR$/user_location_repository/lib/src/models/user_location.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="60" column="133" selection-start-line="60" selection-start-column="133" selection-end-line="60" selection-end-column="133" />
+            <state relative-caret-position="215">
+              <caret line="49" column="172" selection-start-line="49" selection-start-column="134" selection-end-line="49" selection-end-column="172" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,18 +117,18 @@
         <option value="$PROJECT_DIR$/lib/blocs/user_location_bloc/bloc.dart" />
         <option value="$PROJECT_DIR$/lib/blocs/blocs.dart" />
         <option value="$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_state.dart" />
-        <option value="$PROJECT_DIR$/user_location_repository/lib/src/entities/user_location_entity.dart" />
-        <option value="$PROJECT_DIR$/user_location_repository/lib/src/models/user_location.dart" />
         <option value="$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_event.dart" />
-        <option value="$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_bloc.dart" />
         <option value="$PROJECT_DIR$/lib/screens/profile_screen.dart" />
+        <option value="$PROJECT_DIR$/user_location_repository/lib/src/models/user_location.dart" />
+        <option value="$PROJECT_DIR$/user_location_repository/lib/src/entities/user_location_entity.dart" />
+        <option value="$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_bloc.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="827" />
+    <option name="width" value="1920" />
+    <option name="height" value="1007" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -181,7 +158,42 @@
               <item name="readcycle" type="b2602c69:ProjectViewProjectNode" />
               <item name="readcycle" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="blocs" type="462c0819:PsiDirectoryNode" />
+              <item name="user_location_bloc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="readcycle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="readcycle" type="462c0819:PsiDirectoryNode" />
+              <item name="user_location_repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="readcycle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="readcycle" type="462c0819:PsiDirectoryNode" />
+              <item name="user_location_repository" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="readcycle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="readcycle" type="462c0819:PsiDirectoryNode" />
+              <item name="user_location_repository" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="readcycle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="readcycle" type="462c0819:PsiDirectoryNode" />
+              <item name="user_location_repository" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="readcycle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="readcycle" type="462c0819:PsiDirectoryNode" />
+              <item name="user_location_repository" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -234,7 +246,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="827" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1007" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" />
@@ -244,7 +256,7 @@
       <window_info id="Resources Explorer" order="4" weight="0.3297568" />
       <window_info id="Build Variants" order="5" side_tool="true" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.25178826" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.18743344" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.32896176" />
       <window_info anchor="bottom" id="TODO" order="1" />
@@ -255,7 +267,7 @@
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.5007153" side_tool="true" weight="0.3292517" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32789117" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49928468" visible="true" weight="0.40952381" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49928468" visible="true" weight="0.32896176" />
       <window_info anchor="bottom" id="Find" order="10" />
       <window_info anchor="right" id="Theme Preview" order="0" />
       <window_info anchor="right" id="Flutter Inspector" order="1" />
@@ -398,20 +410,6 @@
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widgets/login_form.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/screens/login_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -661,29 +659,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user_location_repository/lib/src/firebase_user_location_repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/readcycle.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="69" column="46" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#1652#1743#0" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/blocs/user_location_bloc/bloc.dart">
       <provider selected="true" editor-type-id="text-editor">
@@ -696,26 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user_location_repository/lib/src/entities/user_location_entity.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user_location_repository/lib/src/models/user_location.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="119" selection-start-line="17" selection-start-column="119" selection-end-line="17" selection-end-column="119" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -733,12 +690,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_event.dart">
+    <entry file="file://$PROJECT_DIR$/lib/screens/book_search_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="24" />
+        <state relative-caret-position="126">
+          <caret line="74" selection-start-line="74" selection-end-line="76" selection-end-column="24" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/screens/profile_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="75" column="46" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/login_form.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/screens/login_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="48" column="27" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -753,32 +744,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_bloc.dart">
+    <entry file="file://$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_event.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="27" column="42" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="42" />
+        <state relative-caret-position="180">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_location_repository/lib/src/firebase_user_location_repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/screens/book_search_screen.dart">
+    <entry file="file://$PROJECT_DIR$/user_location_repository/lib/src/entities/user_location_entity.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="74" selection-start-line="74" selection-end-line="76" selection-end-column="24" />
+        <state relative-caret-position="447">
+          <caret line="81" column="86" selection-start-line="81" selection-start-column="86" selection-end-line="81" selection-end-column="86" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/screens/profile_screen.dart">
+    <entry file="file://$PROJECT_DIR$/lib/blocs/user_location_bloc/user_location_bloc.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="60" column="133" selection-start-line="60" selection-start-column="133" selection-end-line="60" selection-end-column="133" />
+        <state relative-caret-position="699">
+          <caret line="48" column="233" selection-start-line="48" selection-start-column="233" selection-end-line="48" selection-end-column="233" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_location_repository/lib/src/models/user_location.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="49" column="172" selection-start-line="49" selection-start-column="134" selection-end-line="49" selection-end-column="172" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

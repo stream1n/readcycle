@@ -10,9 +10,11 @@ class UserLocationEntity extends Equatable {
   final String locality;
   final double longitude;
   final double latitude;
+  final double maxDistanceUserWantsToTravel;
+  final double maxDistanceUserWantsOthersToTravelFrom;
   final String id;
 
-  const UserLocationEntity(this.name, this.isoCountryCode, this.country, this.postalCode, this.locality, this.longitude, this.latitude, this.id);
+  const UserLocationEntity(this.name, this.isoCountryCode, this.country, this.postalCode, this.locality, this.longitude, this.latitude, this.maxDistanceUserWantsToTravel, this.maxDistanceUserWantsOthersToTravelFrom, this.id);
 
   Map<String, Object> toJson() {
     return {
@@ -23,16 +25,18 @@ class UserLocationEntity extends Equatable {
       "locality": locality,
       "longitude": longitude,
       "latitude": latitude,
+      "maxDistanceUserWantsToTravel": maxDistanceUserWantsToTravel,
+      "maxDistanceUserWantsOthersToTravelFrom": maxDistanceUserWantsOthersToTravelFrom,
       "id": id
     };
   }
 
   @override
-  List<Object> get props => [name, isoCountryCode, country, postalCode, locality, longitude, latitude, id];
+  List<Object> get props => [name, isoCountryCode, country, postalCode, locality, longitude, latitude, maxDistanceUserWantsToTravel, maxDistanceUserWantsOthersToTravelFrom, id];
 
   @override
   String toString() {
-    return 'UserLocationEntity { name: $name, isoCountryCode: $isoCountryCode, country: $country, postalCode: $postalCode, locality: $locality, longitude: $longitude, latitude: $latitude, id: $id }';
+    return 'UserLocationEntity { name: $name, isoCountryCode: $isoCountryCode, country: $country, postalCode: $postalCode, locality: $locality, longitude: $longitude, latitude: $latitude, maxDistanceUserWantsToTravel: $maxDistanceUserWantsToTravel, maxDistanceUserWantsOthersToTravelFrom: $maxDistanceUserWantsOthersToTravelFrom, id: $id }';
   }
 
   static UserLocationEntity fromJson(Map<String, Object> json) {
@@ -44,6 +48,8 @@ class UserLocationEntity extends Equatable {
       json["locality"] as String,
       json["longitude"] as double,
       json["latitude"] as double,
+      json["maxDistanceUserWantsToTravel"] as double,
+      json["maxDistanceUserWantsOthersToTravelFrom"] as double,
       json["id"] as String,
     );
   }
@@ -57,6 +63,8 @@ class UserLocationEntity extends Equatable {
       snap.data['locality'],
       snap.data['longitude'],
       snap.data['latitude'],
+      snap.data['maxDistanceUserWantsToTravel'],
+      snap.data['maxDistanceUserWantsOthersToTravelFrom'],
       snap.documentID,
     );
   }
@@ -70,6 +78,8 @@ class UserLocationEntity extends Equatable {
       "locality": locality,
       "longitude": longitude,
       "latitude": latitude,
+      "maxDistanceUserWantsToTravel": maxDistanceUserWantsToTravel,
+      "maxDistanceUserWantsOthersToTravelFrom": maxDistanceUserWantsOthersToTravelFrom,
       "id": id
     };
   }
