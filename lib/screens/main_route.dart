@@ -31,6 +31,9 @@ class _MainState extends State<MainRoute> {
                   icon: new Icon(Icons.local_library),
                   title: new Text("")),
               BottomNavigationBarItem(
+                  icon: new Icon(Icons.message),
+                  title: new Text("")),
+              BottomNavigationBarItem(
                   icon: Icon(Icons.person), title: new Text(""))
             ],
           ),
@@ -39,8 +42,8 @@ class _MainState extends State<MainRoute> {
           HomeScreen(),
           BookSearchScreen(user: widget.user),
           LibraryScreen(user: widget.user),
-          ProfileScreen(user: widget.user),
-          //LocationScreen(),
+          MatchesScreen(user: widget.user),
+          ProfileScreen(user: widget.user)
         ],
         onItemTap: (index) {});
   }

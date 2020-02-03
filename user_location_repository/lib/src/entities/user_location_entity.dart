@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import 'package:geolocator/geolocator.dart';
 
 class UserLocationEntity extends Equatable {
+  final String userName;
+  final String userPhoto;
   final String name;
   final String isoCountryCode;
   final String country;
@@ -14,10 +15,12 @@ class UserLocationEntity extends Equatable {
   final double maxDistanceUserWantsOthersToTravelFrom;
   final String id;
 
-  const UserLocationEntity(this.name, this.isoCountryCode, this.country, this.postalCode, this.locality, this.longitude, this.latitude, this.maxDistanceUserWantsToTravel, this.maxDistanceUserWantsOthersToTravelFrom, this.id);
+  const UserLocationEntity(this.userName, this.userPhoto, this.name, this.isoCountryCode, this.country, this.postalCode, this.locality, this.longitude, this.latitude, this.maxDistanceUserWantsToTravel, this.maxDistanceUserWantsOthersToTravelFrom, this.id);
 
   Map<String, Object> toJson() {
     return {
+      "userName": userName,
+      "userPhoto": userPhoto,
       "name": name,
       "isoCountryCode": isoCountryCode,
       "country": country,
@@ -32,15 +35,17 @@ class UserLocationEntity extends Equatable {
   }
 
   @override
-  List<Object> get props => [name, isoCountryCode, country, postalCode, locality, longitude, latitude, maxDistanceUserWantsToTravel, maxDistanceUserWantsOthersToTravelFrom, id];
+  List<Object> get props => [userName, userPhoto, name, isoCountryCode, country, postalCode, locality, longitude, latitude, maxDistanceUserWantsToTravel, maxDistanceUserWantsOthersToTravelFrom, id];
 
   @override
   String toString() {
-    return 'UserLocationEntity { name: $name, isoCountryCode: $isoCountryCode, country: $country, postalCode: $postalCode, locality: $locality, longitude: $longitude, latitude: $latitude, maxDistanceUserWantsToTravel: $maxDistanceUserWantsToTravel, maxDistanceUserWantsOthersToTravelFrom: $maxDistanceUserWantsOthersToTravelFrom, id: $id }';
+    return 'UserLocationEntity { userName: $userName, userPhoto: $userPhoto, name: $name, isoCountryCode: $isoCountryCode, country: $country, postalCode: $postalCode, locality: $locality, longitude: $longitude, latitude: $latitude, maxDistanceUserWantsToTravel: $maxDistanceUserWantsToTravel, maxDistanceUserWantsOthersToTravelFrom: $maxDistanceUserWantsOthersToTravelFrom, id: $id }';
   }
 
   static UserLocationEntity fromJson(Map<String, Object> json) {
     return UserLocationEntity(
+      json["userName"] as String,
+      json["userPhoto"] as String,
       json["name"] as String,
       json["isoCountryCode"] as String,
       json["country"] as String,
@@ -56,6 +61,8 @@ class UserLocationEntity extends Equatable {
 
   static UserLocationEntity fromSnapshot(DocumentSnapshot snap) {
     return UserLocationEntity(
+      snap.data['userName'],
+      snap.data['userPhoto'],
       snap.data['name'],
       snap.data['isoCountryCode'],
       snap.data['country'],
@@ -71,6 +78,8 @@ class UserLocationEntity extends Equatable {
 
   Map<String, Object> toDocument() {
     return {
+      "userName": userName,
+      "userPhoto": userPhoto,
       "name": name,
       "isoCountryCode": isoCountryCode,
       "country": country,

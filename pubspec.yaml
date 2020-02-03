@@ -41,6 +41,8 @@ dependencies:
     path: user_repository
   user_location_repository:
     path: user_location_repository
+  user_matches_repository:
+    path: user_matches_repository
 
 dev_dependencies:
   flutter_test:

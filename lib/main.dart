@@ -6,6 +6,7 @@ import 'package:readcycle/blocs/blocs.dart';
 import 'package:readcycle/screens/screens.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:library_books_repository/library_books_repository.dart';
+import 'package:user_matches_repository/user_matches_repository.dart';
 import 'package:user_location_repository/user_location_repository.dart';
 import 'package:book_repository/book_repository.dart';
 import 'package:http/http.dart' as http;
@@ -60,12 +61,21 @@ class ReadCycleApp extends StatelessWidget {
                         ..add(LoadLibraryBooks());
                     },
                   ),
+                  BlocProvider<UserMatchesBloc>(
+                    create: (context) {
+                      return UserMatchesBloc(
+                          userMatchesRepository:
+                          FirebaseUserMatchesRepository(),
+                          userId: state.user.uid)
+                        ..add(LoadUserMatches());
+                    },
+                  ),
                   BlocProvider<UserLocationBloc>(
                     create: (context) {
                       return UserLocationBloc(
                           userLocationRepository:
                           FirebaseUserLocationRepository(),
-                          userId: state.user.uid,
+                          user: state.user,
                           geolocator: Geolocator())
                         ..add(LoadUserLocation());
                     },
@@ -80,6 +90,13 @@ class ReadCycleApp extends StatelessWidget {
                     create: (context) => FilteredLibraryBooksBloc(
                       libraryBooksBloc:
                           BlocProvider.of<LibraryBooksBloc>(context),
+                    ),
+                  ),
+                  BlocProvider<FilteredUserMatchesBloc>(
+                    create: (context) => FilteredUserMatchesBloc(
+                      userMatchesBloc:
+                      BlocProvider.of<UserMatchesBloc>(context),
+                      userId: state.user.uid
                     ),
                   ),
                 ],
