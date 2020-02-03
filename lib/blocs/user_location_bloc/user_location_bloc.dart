@@ -69,7 +69,7 @@ class UserLocationBloc extends Bloc<UserLocationEvent, UserLocationState> {
         final Position position = await _geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
         final List<Placemark> placemarks = await _geolocator.placemarkFromPosition(position);
         Placemark placemark = placemarks[0];
-        UserLocation userLocationUpdate = userLocation.copyWith(userName: _user.displayName, userPhoto: _user.photoUrl, name: placemark.name, isoCountryCode: placemark.isoCountryCode, country: placemark.country, postalCode: placemark.postalCode, locality: placemark.locality, longitude: placemark.position.longitude, latitude: placemark.position.latitude, id: _user.uid);
+        UserLocation userLocationUpdate = userLocation.copyWith(userName: _user.displayName, userPhoto: _user.photoUrl, name: placemark.name, isoCountryCode: placemark.isoCountryCode, country: placemark.country, postalCode: placemark.postalCode, locality: placemark.locality, longitude: placemark.position.longitude, latitude: placemark.position.latitude, maxDistanceUserWantsToTravel: 1, maxDistanceUserWantsOthersToTravelFrom: 1, id: _user.uid);
         _userLocationRepository.updateUserLocation(userLocationUpdate);
         yield UserLocationLoaded(userLocation);
     } catch (_) {
