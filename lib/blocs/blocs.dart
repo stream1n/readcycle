@@ -5,5 +5,6 @@ export './user_matches/user_matches.dart';
 export './simple_bloc_delegate.dart';
 export './authentication_bloc/bloc.dart';
 export './book_bloc/bloc.dart';
+export './user_matching_bloc/bloc.dart';
 export './books_bloc/bloc.dart';
 export './user_location_bloc/bloc.dart';

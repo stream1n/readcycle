@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:readcycle/blocs/authentication_bloc/bloc.dart';
 import 'package:readcycle/blocs/blocs.dart';
 import 'package:readcycle/screens/screens.dart';
+import 'package:user_matching_repository/user_matching_repository.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:library_books_repository/library_books_repository.dart';
 import 'package:user_matches_repository/user_matches_repository.dart';
@@ -19,16 +20,24 @@ void main() {
     ),
   );
 
+  final UserMatchingRepository userMatchingRepository = UserMatchingRepositoryHttp(
+    userMatchingApiClient: UserMatchingApiClient(
+      httpClient: http.Client(),
+    ),
+  );
+
   BlocSupervisor.delegate = SimpleBlocDelegate();
-  runApp(ReadCycleApp(bookRepository: bookRepository));
+  runApp(ReadCycleApp(bookRepository: bookRepository, userMatchingRepository: userMatchingRepository));
 }
 
 class ReadCycleApp extends StatelessWidget {
   final BookRepository _bookRepository;
+  final UserMatchingRepository _userMatchingRepository;
 
-  ReadCycleApp({Key key, @required BookRepository bookRepository})
-      : assert(bookRepository != null),
+  ReadCycleApp({Key key, @required BookRepository bookRepository, @required UserMatchingRepository userMatchingRepository})
+      : assert(bookRepository != null && userMatchingRepository != null),
         _bookRepository = bookRepository,
+        _userMatchingRepository = userMatchingRepository,
         super(key: key);
 
   @override
@@ -86,6 +95,9 @@ class ReadCycleApp extends StatelessWidget {
                   BlocProvider<BooksBloc>(
                       create: (context) =>
                           BooksBloc(bookRepository: _bookRepository)),
+                  BlocProvider<UserMatchingBloc>(
+                      create: (context) =>
+                          UserMatchingBloc(userMatchingRepository: _userMatchingRepository)),
                   BlocProvider<FilteredLibraryBooksBloc>(
                     create: (context) => FilteredLibraryBooksBloc(
                       libraryBooksBloc:

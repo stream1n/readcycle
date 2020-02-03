@@ -10,3 +10,5 @@ export './google_login_button.dart';
 export './author_selection.dart';
 export './slideLeftBackground.dart';
 export './slideRightBackground.dart';
+export './user-match-accept-reject.dart';
+export './user-match-cancel.dart';

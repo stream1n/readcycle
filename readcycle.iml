@@ -100,6 +100,9 @@
       <excludeFolder url="file://$MODULE_DIR$/user_matches_repository/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/user_matches_repository/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/user_matches_repository/build" />
+      <excludeFolder url="file://$MODULE_DIR$/user_matching_repository/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/user_matching_repository/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/user_matching_repository/build" />
       <excludeFolder url="file://$MODULE_DIR$/user_profile_repository/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/user_profile_repository/build" />
       <excludeFolder url="file://$MODULE_DIR$/user_repository/.dart_tool" />
