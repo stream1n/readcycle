@@ -14,6 +14,7 @@ class FilteredMatches extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return BlocBuilder<FilteredUserMatchesBloc, FilteredUserMatchesState>(
       builder: (context, state) {
         if (state is FilteredUserMatchesLoading) {
@@ -24,9 +25,13 @@ class FilteredMatches extends StatelessWidget {
             itemCount: userMatches.length,
             itemBuilder: (context, index) {
               final userMatch = userMatches[index];
+              final String displayName = user.uid==userMatch.userThatWillStay ? userMatch.userThatWillTravelName : userMatch.userThatWillStayName;
+              final bool canIAccept = user.uid==userMatch.userThatWillStay;
+
               return UserMatchItem(
-                userMatch: userMatch,
-                user: user
+                  userMatch: userMatch,
+                  displayName: displayName,
+                  canIAccept: canIAccept
               );
             },
           );
